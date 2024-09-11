@@ -165,3 +165,14 @@ cron.schedule('0 5 * * *', () => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}...`);
 });
+
+// Rota fake de GET para manter a conexão
+  setInterval(() => {
+    axios.get(`${env.process.API_BASE_URL}/api/get`)
+      .then(response => {
+        console.log('GET realizado com sucesso');
+      })
+      .catch(error => {
+        console.error('GET feito.');
+      });
+  }, 5 * 60 * 1000);  // 1 minuto em milissegundos
