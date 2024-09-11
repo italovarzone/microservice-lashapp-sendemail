@@ -154,13 +154,21 @@ const sendDailyNotification = async () => {
   }
 };
 
-// Agendamento diário às 5h00 da manhã
-cron.schedule('0 5 * * *', () => {
-  console.log('Realizando procedimento de envio de email...');
+// Agendamento para teste a cada 10 segundos
+cron.schedule('*/50 * * * * *', () => {  // '*/10 * * * * *' significa "a cada 10 segundos"
+  console.log('Executando tarefa agendada para enviar notificação de teste a cada 50 segundos...');
   sendDailyNotification();
 }, {
-  timezone: "America/Sao_Paulo"
+  timezone: "America/Sao_Paulo" // Defina o fuso horário desejado
 });
+
+// // Agendamento diário às 5h00 da manhã
+// cron.schedule('0 5 * * *', () => {
+//   console.log('Realizando procedimento de envio de email...');
+//   sendDailyNotification();
+// }, {
+//   timezone: "America/Sao_Paulo"
+// });
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}...`);
