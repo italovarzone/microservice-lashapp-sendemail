@@ -168,7 +168,7 @@ app.listen(PORT, () => {
 
 // Rota fake de GET para manter a conexão
   setInterval(() => {
-    axios.get(`${env.process.API_BASE_URL}/api/get`)
+    axios.get(`${process.env.API_BASE_URL}/api/get`)
       .then(response => {
         console.log('GET realizado com sucesso');
       })
