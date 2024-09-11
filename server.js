@@ -4,7 +4,7 @@ const SibApiV3Sdk = require('sib-api-v3-sdk');
 const cron = require('node-cron');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Configuração do serviço de email (Brevo)
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
